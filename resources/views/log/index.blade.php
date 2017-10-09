@@ -174,7 +174,7 @@ body:before {
 
 <div class="container">
   <div class="info">
-    <!-- <h1>Flat Login Form</h1><span>Made with <i class="fa fa-heart"></i> by <a href="http://andytran.me">Andy Tran</a></span> -->
+    <!-- <h1>Flat Login Form</h1><sapan>Made with <i class="fa fa-heart"></i> by <a href="http://andytran.me">Andy Tran</a></span> -->
   </div>
 </div>
 <div class="form">
@@ -186,12 +186,10 @@ body:before {
     <button>create</button>
     <p class="message">Already registered? <a href="#">Sign In</a></p>
   </form>
-  <form class="login-form">
     <input type="text" placeholder="username"/>
     <input type="password" placeholder="password"/>
     <button>INGRESAR</button>
     <p class="message">Not registered? <a href="#">Create an account</a></p>
-  </form>
 </div>
 <video id="video" autoplay="autoplay" loop="loop" poster="{{asset('images/prestamos.png')}}" controls muted>
   <!-- <source src="{{asset('video/presentacion.mp4')}}" type="video/mp4"/> -->

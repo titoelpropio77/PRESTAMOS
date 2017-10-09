@@ -1,5 +1,5 @@
 @extends('layouts.inicio')
-	@section('contenido')
-	@include('alerts.errors')
+	@section('Contenido')
+	
 
 	@endsection

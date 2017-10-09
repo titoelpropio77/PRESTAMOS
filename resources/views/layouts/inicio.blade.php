@@ -1,387 +1,337 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
-        <meta charset="utf-8">
+        <link rel="icon" href="/images/login-logo.png" type="image/x-icon" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SISTEMA INMOBILIARIO</title>
-        <!-- Tell the browser to be responsive to screen width -->
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-       <!-- <meta name="viewport" content="width=500, initial-scale=1"> -->
-              <!-- Bootstrap 3.3.5 -->
-  {!!Html::style('css/bootstrap/bootstrap.css')!!}
-        <!-- Font Awesome -->
-        {!!Html::style('css/font-awesome.min.css')!!}
-        <!-- Theme style -->
-        {!!Html::style('css/plugins/AdminLTE.min.css')!!}
-        <!-- AdminLTE Skins. Choose a skin from the css/skins
-             folder instead of downloading all of them to reduce the load. -->
-        {!!Html::style('css/plugins/moment.min.css')!!}
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <title>OsB SMB</title>
+        <!-- For iPhone -->
+        <meta name="msapplication-TileColor" content="#00bcd4">
+        <style>
+            div.container { max-width: 1200px }
 
-        {!!Html::style('css/plugins/_all-skins.min.css')!!}
-        {!!Html::style('css/bootstrap/bootstrap-select.min.css')!!}
-        {!!Html::style('css/bootstrap/datepicker3.css')!!}
+            .picker__date-display {
+                background-color:#00b0ff !important;
+            }
+            .picker__weekday-display {
+                background-color: #0091ea !important;
+            }
+            .picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+                background-color:#00b0ff !important;
+            }
+            .picker__close, .picker__today{
+                color: #00b0ff !important;
+            }
+            .picker__day.picker__day--today{
+                color:#0091ea !important;
+            }
+        </style>
+        <!-- CORE CSS-->    
+        {!!Html::style('css/jquery.dataTables.min.css')!!}
+        {!!Html::style('css/responsive.dataTables.min.css')!!}
+        {!!Html::style('js/plugins/animate-css/animate.css')!!}
+        {!!Html::style('css/materialize.css')!!} 
 
-        {!!Html::style('css/plugins/toastr.css')!!}
-        {!!Html::style('css/bootstrap/daterangepicker.css')!!}
-        {!!Html::style('css/personalizado.css')!!}
-  <!-- DataTables -->
-        {!!Html::style('datatables/dataTables.bootstrap.css')!!}
-        {!!Html::style('css/plugins/jquery-jvectormap-2.0.3.css')!!}
-
-
-        {!!Html::script('js/plugins/jquery.min.js')!!}
-        {!!Html::style('css/cargando.css')!!}
-        <link rel="shortcut icon" href="{{asset('images/sinfondo.png')}}">
-
-        <link rel="apple-touch-icon" href="{{asset('images/sinfondo.png')}}">
-
-
+        {!!Html::style('css/style.css')!!} 
+        <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+        {!!Html::style('js/plugins/perfect-scrollbar/perfect-scrollbar.css')!!}
+        {!!Html::style('js/plugins/jvectormap/jquery-jvectormap.css')!!}
+        {!!Html::style('js/plugins/chartist-js/chartist.min.css')!!}
+        {!!Html::style('js/plugins/sweetalert/dist/sweetalert.css')!!}
+        {!!Html::style('js/plugins/ionRangeSlider/css/ion.rangeSlider.css')!!}
+        {!!Html::style('js/plugins/ionRangeSlider/css/ion.rangeSlider.skinFlat.css')!!}
     </head>
-
-    <!-- <body class="hold-transition skin-blue sidebar-mini"> -->
-    <body id="bodyPrincipal" class="hold-transition skin-blue sidebar-mini">
-        <div class="wrapper"> 
-
-            <header class="main-header" >
-
-                <!-- Logo -->
-                <a href="{!!URL::to('index')!!}" class="logo">
-                    <!-- mini logo for sidebar mini 50x50 pixels -->
-
-                    <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg">LA PROVISION</span>
-
-
-                </a>
-
-                <!-- Header Navbar: style can be found in header.less -->
-                <nav class="navbar navbar-static-top" role="navigation" style="text-transform: uppercase;">
-                    <!-- Sidebar toggle button-->
-                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                        <span class="sr-only">Navegación</span>
-                    </a>
-                    <!-- Navbar Right Menu -->
-                    <div class="navbar-custom-menu">
-                        <ul class="nav navbar-nav" style="text-transform: uppercase;">
-                            <!-- Messages: style can be found in dropdown.less-->
-
-                            <!-- User Account: style can be found in dropdown.less -->
-                            <li class="dropdown user user-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <small class=""><?php echo Session::get('nombre')." ".Session::get('apellido') ;?></small>
-                                         <img src="{{asset('images/logout.png')}}" class="user-image" alt="User Image">
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <!-- User image -->
-                                    <li class="user-header">
-                                    <img src="{{asset('images/user.png')}}" class="img-circle" alt="User Image">
-                                        <p>
-                                           <?php echo Session::get('nombre')." ".Session::get('apellido') ;?>
-                                            <small> <?php echo Session::get('cargo') ;?></small>
-                                        </p>
-
-                                    </li>
-
-                                    <!-- Menu Footer-->
-                                    <li class="user-footer">
-
-                                        <div class="pull-right">
-
-                                            <a href="{!!URL::to('logout')!!}" ><button class="btn btn-danger">CERRAR SESION</button></a>
-                                        </div>
-                                    </li>
-                                </ul>
+    <body>
+        <input type="hidden" value="{!! Session::get('idPerfil') !!}" id="iddelperfil">
+        <input type="hidden" value="{!! Session::get('idpuntoventa') !!}" id="iddelpuntoventa">
+        <input type="hidden" value="{!! Session::get('idempleado') !!}" id="iddelempleado">
+        <input type="hidden" value="{!! Session::get('idsucursal') !!}" id="idsucursal">
+        <input type="hidden" value="" id="perfilpuedeGuardar">
+        <input type="hidden" value="" id="perfilpuedeEliminar">
+        <input type="hidden" value="" id="perfilpuedeModificar">
+        <input type="hidden" value="" id="perfilpuedeListars">
+        <input type="hidden" value="" id="perfilpuedeVerReporte">
+        <input type="hidden" value="" id="perfilpuedeImprimir">
+        <!-- Start Page Loading -->
+        <div id="loader-wrapper">
+            <div id="loader"></div>        
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////////////////// -->
+        <!-- START HEADER -->
+        <header id="header" class="page-topbar">
+            <!-- start header nav-->
+            <div class="navbar-fixed">
+                <nav class="naranja">
+                    <div class="nav-wrapper">
+                        <h1 class="logo-wrapper">
+                            <a   class="brand-logo darken-1" href="/index">
+                                {!! HTML::image('images/materialize-logo.png', 'a picture')!!}  
+                            </a>
+                        </h1>
+                        <ul class="right hide-on-med-and-down">
+                            <li>
+                                <span class="logo-text white-text bold" style="font-weight: bold !important; font-size: 25px;">
+                                    EMPRESA: LA PROVISION
+                                </span>
+                            </li>     
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen"><i class="mdi-action-settings-overscan"></i></a>
                             </li>
-
+                            <li>
+                                <a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="mdi-social-notifications"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" id="cache" class="waves-effect waves-light"><i class="mdi-action-cached"></i></a>
+                            </li>
                         </ul>
                     </div>
-
                 </nav>
-            </header>
-            <!-- Left side column. contains the logo and sidebar -->
-            <aside class="main-sidebar">
-                <!-- sidebar: style can be found in sidebar.less -->
-                <section class="sidebar">
-                    <!-- Sidebar user panel -->
-
-                    <!-- sidebar menu: : style can be found in sidebar.less -->
-                    <ul class="sidebar-menu" style="text-transform: uppercase;">
-
-                    <?php
-                        $verficar = DB::select('select  modulo.nombre count from perfil,perfilobjeto,objeto,modulo where perfil.id=perfilobjeto.idPerfil and perfilobjeto.idObjeto=objeto.id and modulo.id=objeto.idModulo and perfil.id=' . Session::get('idPerfil') . ' and modulo.nombre="Vendedor"');
-                        if (count($verficar) != 0) {
-                            ?>
-                        <li class="header"></li>
-
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                                <span>VENDEDOR</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-
-                                <li><a href="{!!URL::to('PreReserva')!!}"><i class="fa fa-building-o" aria-hidden="true"></i></i>PRE-RESERVAR LOTE</a></li>
-                                <li><a href="{!!URL::to('seccion1/1')!!}"><i class="fa fa-building-o" aria-hidden="true"></i></i>Mapa</a></li>
-
-                                <!-- <li><a href="{!!URL::to('cliente')!!}"><i class="fa fa-user"></i> Mapa</a></li> -->
-                                <li><a href="{!!URL::to('ControlPreReserva')!!}"><i class="fa fa-circle-o"></i>Pre-Reservas Activas</a></li>
-                                <?php
-                        $verficar = DB::select('select  modulo.nombre count from perfil,perfilobjeto,objeto,modulo where perfil.id=perfilobjeto.idPerfil and perfilobjeto.idObjeto=objeto.id and modulo.id=objeto.idModulo and perfil.id=' . Session::get('idPerfil') . ' and modulo.nombre="Vendedor" and objeto.urlObjeto="/Vendedor"');
-                        if (count($verficar) != 0) {
-                            ?>
-                                    
-                                     <li><a href="{!!URL::to('ListaEmpleado')!!}"><i class="fa fa-circle-o"></i> Gestionar Vendedor</a></li>
-<?php } ?>
-                                    
-
-                            </ul>
-
-                        </li>
-<?php } ?>
-
- <?php
-                        $verficar = DB::select('select  modulo.nombre count from perfil,perfilobjeto,objeto,modulo where perfil.id=perfilobjeto.idPerfil and perfilobjeto.idObjeto=objeto.id and modulo.id=objeto.idModulo and perfil.id=' . Session::get('idPerfil') . ' and modulo.nombre="Ventas y Reservas"');
-                        if (count($verficar) != 0) {
-                            ?>
-                        <li class="treeview">
-                            <a href="#"> 
-                                <i class="fa fa-calculator" aria-hidden="true"></i>
-                                <span>RESERVAS</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul id="listacategoria1" class="treeview-menu">
-                            
-                                <li><a href="{!!URL::to('Reserva')!!}"><i class="fa fa-tasks"></i>Reservar</a></li>
-                                
-                               
-                                 <li><a href="{!!URL::to('ListaReserva')!!}"><i class="fa fa-circle-o"> </i>LISTA Reserva</a></li>
-                                  <li><a href="{!!URL::to('ListaPreReserva')!!}"><i class="fa fa-circle-o"></i>LISTA Pre-Reserva</a></li>
-                            </ul>
-                        </li>
-                           <li class="treeview">
-                            <a href="#"> 
-                                <i class="fa fa-calculator" aria-hidden="true"></i>
-                                <span>VENTAS</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul id="listacategoria1" class="treeview-menu">
-                            <li><a href="{!!URL::to('Venta')!!}"><i class="fa fa-handshake-o" aria-hidden="true""></i>Vender</a></li>
-                                <li><a href="{!!URL::to('PagoVenta')!!}"><i class="fa fa-tasks"></i>GESTION DE COBRANZA</a></li>
-                                  
-                                <li><a href="{!!URL::to('ListaVenta')!!}"><i class="fa fa-tasks"></i>LISTA VENTAS</a></li>
-                               
-                            </ul>
-                        </li>
-               <li class="treeview">
-                            <a href="#"> 
-                                <i class="fa fa-calculator" aria-hidden="true"></i>
-                                <span>RPROG. Y TRASPASO</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul id="listacategoria1" class="treeview-menu">
-                            <li><a href="{!!URL::to('Venta')!!}"><i class="fa fa-circle-o"></i>REPROGRAMAR</a></li>
-                                <li><a href="{!!URL::to('PagoVenta')!!}"><i class="fa fa-circle-o"></i>TRASPASO</a></li>
-                                  
-                             
-                               
-                            </ul>
-                        </li>
-<?php } ?>
-
-                  <?php
-                        $verficar = DB::select('select  modulo.nombre count from perfil,perfilobjeto,objeto,modulo where perfil.id=perfilobjeto.idPerfil and perfilobjeto.idObjeto=objeto.id and modulo.id=objeto.idModulo and perfil.id=' . Session::get('idPerfil') . ' and modulo.nombre="Lotes"');
-                        if (count($verficar) != 0) {
-                            ?>       
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-building" aria-hidden="true"></i>
-                                <span> LOTES</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul  class="treeview-menu">
-                                <li><a href="{!!URL::to('Lote')!!}"><i class="fa fa-tasks"></i>Gestionar Lotes</a></li>
-
-                            </ul>
-                        </li>
-<?php } ?>
-
-                         <?php
-                        $verficar = DB::select('select  modulo.nombre count from perfil,perfilobjeto,objeto,modulo where perfil.id=perfilobjeto.idPerfil and perfilobjeto.idObjeto=objeto.id and modulo.id=objeto.idModulo and perfil.id=' . Session::get('idPerfil') . ' and modulo.nombre="Proyecto"');
-                        if (count($verficar) != 0) {
-                            ?>
-                        <li class="treeview">
-                         <a href="#">
-
-                             <i class="fa fa-cogs" aria-hidden="true"></i>
-                              <span> ADMINISTRAR PROYECTO</span>
-                              <i class="fa fa-angle-left pull-right"></i>
-                              </a>
-                               <ul  class="treeview-menu">
-
-                                <li><a href="{!!URL::to('Proyecto')!!}"><i class="fa fa-line-chart" aria-hidden="true"></i>PROYECTO</a></li>
-
-                                <li><a href="{!!URL::to('Categoria')!!}"><i class="fa fa-list-ol" aria-hidden="true"></i> CATEGORIA</a></li>
-
-                                <li><a href="{!!URL::to('Precio')!!}"><i class="fa fa-usd" aria-hidden="true"></i> PRECIO</a></li>
-                                  <li><a href="{!!URL::to('Meses')!!}"><i class="fa fa-calendar" aria-hidden="true"></i>Meses</a></li>
-                              
-                                  <li><a href="{!!URL::to('CuotaMinima')!!}"><i  class="fa fa-percent" aria-hidden="true"></i>Cuota Minima</a></li>
-
-                                  <li><a href="{!!URL::to('DescuentoVenta')!!}"><i  class="fa fa-percent" aria-hidden="true"></i>Descuento en Venta</a></li>
-                               <li><a href="{!!URL::to('PorcentajeDevolucionReserva')!!}">% Devolucion RESERVA</a></li>
-
-                               <li><a href="{!!URL::to('TipoCambio')!!}"><i class="fa fa-usd" aria-hidden="true"></i>Tipo de Cambio</a></li>
-                             
-                              </ul>
-                               </li> 
-<?php } ?>
-
-                        <?php
-                        $verficar = DB::select('select  modulo.nombre count from perfil,perfilobjeto,objeto,modulo where perfil.id=perfilobjeto.idPerfil and perfilobjeto.idObjeto=objeto.id and modulo.id=objeto.idModulo and perfil.id=' . Session::get('idPerfil') . ' and modulo.nombre="Empleado"');
-                        if (count($verficar) != 0) {
-                            ?>
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-user"></i>
-                                    <span>Empleado</span>
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </a>
-                                <ul  id="gestiones" class="treeview-menu">
-                                    <li><a href="{!!URL::to('Empleado')!!}"><i class="fa fa-circle-o"></i> Gestionar Empleado</a></li>
-
-                                    <li><a href="{!!URL::to('Cargo')!!}"><i class="fa fa-circle-o"></i> Gestionar Cargo</a></li>
-                                    <li><a href="{!!URL::to('Turno')!!}"> <i class="fa fa-circle-o"></i>Gestionar Turno</a></li>
-
-
-
-                                </ul>
-                            </li>
-<?php } ?>
-                        <?php
-                        $verficar = DB::select('select  modulo.nombre count from perfil,perfilobjeto,objeto,modulo where perfil.id=perfilobjeto.idPerfil and perfilobjeto.idObjeto=objeto.id and modulo.id=objeto.idModulo and perfil.id=' . Session::get('idPerfil') . ' and modulo.nombre="Seguridad"');
-                        if (count($verficar) != 0) {
-                            ?>
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-lock" aria-hidden="true"></i>
-                                    <span>Seguridad</span>
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </a>
-                                <ul  id="gestiones" class="treeview-menu">
-                                    <li><a href="{!!URL::to('Perfil')!!}"><i class="fa fa-circle-o"></i>Gestionar Perfil</a></li>
-                                    <li><a href="{!!URL::to('Objeto')!!}"><i class="fa fa-circle-o"></i> Gestionar Objeto</a></li>
-                                    <li><a href="{!!URL::to('Modulo')!!}"><i class="fa fa-circle-o"></i>Gestionar  Modulo</a></li>
-
-
-
-                                </ul>
-                            </li>
-<?php } ?>
- <?php
-                        $verficar = DB::select('select  modulo.nombre count from perfil,perfilobjeto,objeto,modulo where perfil.id=perfilobjeto.idPerfil and perfilobjeto.idObjeto=objeto.id and modulo.id=objeto.idModulo and perfil.id=' . Session::get('idPerfil') . ' and modulo.nombre="Empresa"');
-                        if (count($verficar) != 0) {
-                            ?>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-building-o" aria-hidden="true"></i>
-                                <span>Empresa</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul  id="gestiones" class="treeview-menu">
-                                <li><a href="{!!URL::to('Empresa')!!}"><i class="fa fa-circle-o"></i>Gestionar Empresa</a></li>
-                                <li><a href="{!!URL::to('Banco')!!}"><i class="fa fa-circle-o"></i>Gestionar Bancos</a></li>
-                            </ul>
-                        </li>
-                            <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-building-o" aria-hidden="true"></i>
-                                <span>REPORTE</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul  id="gestiones" class="treeview-menu">
-                                <li><a href="{!!URL::to('ReporteVenta')!!}"><i class="fa fa-circle-o"></i>REPORTE VENTAS</a></li>
-                                <li><a href="{!!URL::to('ReporteReserva')!!}"><i class="fa fa-circle-o"></i>REPORTE RESERVA</a></li>
-                            </ul>
-                        </li>
-<?php } ?>
-
-                    </ul>
-                </section>
-                <!-- /.sidebar -->
-            </aside>
-
-
-
-
-
-            <!--Contenido-->
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-
-                <!-- Main content -->
-                <section class="content">
-
-                    <div class="row">
-                         @yield('contenido')
-                    </div><!-- /.box -->
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-
-
-        <!--Fin-Contenido-->
-        <footer class="main-footer">
-            <div class="pull-right hidden-xs">
-                <b>Version</b> 1
             </div>
-                             <!--   <i class="fa fa-sign-out" aria-hidden="true"></i> -->
-            <strong>MODESTO SALDAÑA MICHALEC</strong>   TODOS LOS DERECHOS RESERVADOS
-            
+            <!-- end header nav-->
+        </header>
+        <!-- END HEADER --> 
+        <!-- START MAIN -->
+        <div id="main">
+            <!-- START WRAPPER -->
+            <div class="wrapper">
+                <!-- START LEFT SIDEBAR NAV-->
+                <aside id="left-sidebar-nav">
+                    <ul id="slide-out" class="side-nav fixed leftside-navigation">
+                        <li class="user-details cyan darken-2">
+                            <div class="row">
+                                <div class="col col s4 m4 l4">
+                                    <img src="{{asset('images/user.png')}}" class="circle responsive-img valign profile-image">
+                                </div>
+                                <div class="col col s8 m8 l8">
+                                    <ul id="profile-dropdown" class="dropdown-content">
+                                        <li>
+                                            <a href="/cambiarpasswordusuario/{!! Session::get('idempleado') !!}">
+                                                <i class="mdi-action-face-unlock"></i>Perfil
+                                            </a>
+                                        </li>
+                                                                                <li>
+                                                                                    <a href="/cambiarContraseniaDeUsuario/{!! Session::get('idempleado') !!}"><i class="mdi-action-lock prefix"></i>Pass</a>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <a href="#"><i class="mdi-communication-live-help"></i> Ayuda</a>
+                                                                                </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="/logout/">
+                                                <i class="mdi-hardware-keyboard-tab"></i> Salir
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">
+                                        {!! Session::get('nombre') !!}
+                                        <i class="mdi-navigation-arrow-drop-down right"></i></a>
+                                    <p class="user-roal">{!! Session::get('Cargo') !!}</p>               
+                                </div>
+                                <!--<h5  class="sucursal" id="sucursalnombre" >{!! Session::get('sucursal') !!}</h5>-->
+                            </div>
+                        </li>
+                        <li class="no-padding">
+                            <ul class="collapsible collapsible-accordion">         
+                                   <!--      <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-device-now-widgets"></i>Ingrediente por Menu</a>
+                                              <div class="collapsible-body">
+                                                  <ul>
+              
+                                                        <div id="Ingredientes"  >
+                                               CORE         <li class="li-hover"><div class="divider"></div></li>
+                                                      <li><a href="/Ingredientes">Ingrediente</a></li>
+                                                       </div>  
+                                                          <li class="li-hover"><div class="divider"></div></li>
+                                                         CSS 
+                                                  </ul>
+                                              </div>
+                                          </li>-->
+                                <li class="bold">
+                                    <a class="collapsible-header  waves-effect waves-cyan">
+                                        <i class="material-icons">business</i>Prestamos
+                                    </a>
+                                    <div class="collapsible-body">
+                                        <ul>                
+                                            <div id="Gestionarempresa"  >
+                                                <li><a href="/Gestionarempresa">Gestionar Prestamos</a></li>
+                                            </div>
+                                            <div id="GestionarPais"  >
+                                                <li><a href="/GestionarPais">Gestionar Conbranza</a></li>
+                                            </div>
+                                            <div id="GestionarSucursal"  >
+                                                <li><a href="/GestionarSucursal">Gestionar LLamadas</a></li>
+                                            </div>
+                                           
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="bold">
+                                    <a class="collapsible-header  waves-effect waves-cyan">
+                                        <i class="material-icons">store</i>Ingresos y Egresos</a>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <div id="GestionarProveedor"  >
+                                                <li><a href="/GestionarProveedor">INGRESOS</a></li>
+                                            </div> 
+                                              <div id="GestionarProveedor"  >
+                                                <li><a href="/GestionarProveedor">EGRESOS</a></li>
+                                            </div> 
+                                           
+                                        </ul>
+                                    </div>
+                                </li>
+                       
+                               
+                                 <li class="bold">
+                                    <a class="collapsible-header  waves-effect waves-cyan">
+                                        <i class="mdi-action-settings"></i>Reportes
+                                    </a>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <div id="configuracionGeneral">
+                                                <li><a href="/configuracionGeneral">General</a></li>
+                                            </div>
+                                            <div id="configuracionDashboard">
+                                                <li><a href="/configuracion">Dashboard</a></li>
+                                            </div>
+                                            <div id="configuracionventa">
+                                                <li><a href="/ConfiguracionVenta">Modulo Venta</a></li>
+                                            </div> 
+                                            <div id="configuracionInventario">
+                                                <li><a href="/ConfiguracionInventario">Modulo Inventario</a></li>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="bold">
+                                    <a class="collapsible-header  waves-effect waves-cyan">
+                                        <i class="mdi-action-settings"></i>Configuracion
+                                    </a>
+                                    <div class="collapsible-body">
+                                        <ul>
+                                            <div id="configuracionGeneral">
+                                                <li><a href="/configuracionGeneral">General</a></li>
+                                            </div>
+                                            <div id="configuracionDashboard">
+                                                <li><a href="/configuracion">Dashboard</a></li>
+                                            </div>
+                                            <div id="configuracionventa">
+                                                <li><a href="/ConfiguracionVenta">Modulo Venta</a></li>
+                                            </div> 
+                                            <div id="configuracionInventario">
+                                                <li><a href="/ConfiguracionInventario">Modulo Inventario</a></li>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <div class="divider"></div>
+                        <li class="bold">
+                            <a class=" ">
+                                <div id="reloj" style="font-size:45px;"></div>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only naranja"><i class="mdi-navigation-menu" ></i></a>
+                </aside>
+
+                <!-- END LEFT SIDEBAR NAV-->
+
+                <!-- ////////////////////////////// ///////////////////////////////////////////aqui/// --> 
+                <!--                <aside id="right-sidebar-nav">
+                                    <ul id="chat-out" class="side-nav rightside-navigation">
+                                        <li class="li-hover">          
+                                            <ul class="chat-collapsible" data-collapsible="expandable">
+                                                <a href="#" data-activates="chat-out" class="chat-close-collapse right"><i class="mdi-navigation-close"></i></a>
+                                                <li>
+                                                    <div class="collapsible-header teal white-text active"><i class="mdi-social-notifications"></i></i>Notificaciones</div>
+                                                    <div class="collapsible-body recent-activity">                    
+                                                        <div class="recent-activity-list chat-out-list row"> 
+                                                            <div class="col s12 recent-activity-list-text" id="contenidonotificacion">
+                                                                <a href="/gestionarinventario">Inventario</a>
+                                                                <p>Producto  "xxx " en stock restante "xx"</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </aside>-->
+                @yield('breadcumbs')
+                <!-- START CONTENT -->
+                <section id="content">
+                    <!--start container-->
+                    <div class="container">        
+                        @yield('Contenido')
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- START FOOTER -->
+        <footer class="page-footer ">
+            <div class="footer-copyright blue-grey lighten-2 ">
+                <div class="container "> 
+                    <span>Copyright © 2017 <a class="grey-text text-lighten-4" href="http://osbolivia.com" target="_blank">LA PROVISION</a></span>
+                    <span class="right"> Desarrollado por <a class="grey-text text-lighten-4" href="http://osbolivia.com/" target="_blank">LaProvision</a></span>
+                </div>
+            </div>
         </footer>
+        <!-- END FOOTER -->
+        <!-- ================================================
+        Scripts
+        ================================================  -->    
+        <!-- jQuery Library -->
 
+        {!!Html::script('js/plugins/jquery-2.1.4.min.js')!!}
+        {!!Html::script('js/plugins/perfect-scrollbar/perfect-scrollbar.min.js')!!} 
+        {!!Html::script('js/temp/materialize.js')!!} 
+        {!!Html::script('js/plugins.js')!!}
+        {!!Html::style('css/jquery-ui.css')!!}
+        {!!Html::script('js/plugins/jquery-ui.js')!!}
+        {!!Html::script('js/plugins/data-tables/js/jquery.dataTables.min.js')!!}
+        {!!Html::script('js/plugins/dataTables.responsive.min.js')!!}
+        
+        {!!Html::script('js/plugins/sweetalert/dist/sweetalert.min.js')!!}
+        {!!Html::script('js/plugins/ionRangeSlider/js/ion.rangeSlider.js')!!}}
+        @section('scripts')
+        @show
+        <script type="text/javascript">
+//             function startTime() {
+//                 today = new Date();
+//                 h = today.getHours();
+//                 m = today.getMinutes();
+//                 s = today.getSeconds();
+//                 m = checkTime(m);
+//                 s = checkTime(s);
+//                 var horacompleta = h + ":" + m + ":" + s;
+//                 if (horacompleta == "0:21:00") {
+// //                    alert('Tu turno acaba de terminar : ' + horacompleta);
+//                 }
+//                 document.getElementById('reloj').innerHTML = horacompleta;
+//                 t = setTimeout('startTime()', 500);
+//                 return horacompleta;
+//             }
+//             function checkTime(i) {
+//                 if (i < 10) {
+//                     i = "0" + i;
+//                 }
+//                 return i;
+//             }
 
-        <!-- jQuery 2.1.4 -->
-        {!!Html::script('js/plugins/moment.min.js')!!}
+//             $(window).load(function () {
+//                 startTime();
+//             });
 
-
-        {!!Html::script('js/plugins/toastr.min.js')!!}
-
-        <!-- Bootstrap 3.3.5 -->
-        {!!Html::script('js/bootstrap/bootstrap.min.js')!!}
-        {!!Html::script('js/bootstrap/bootstrap-select.min.js')!!}
-        {!!Html::script('js/bootstrap/bootstrap-datepicker.js')!!}
-        {!!Html::script('js/bootstrap/daterangepicker.js')!!}
-        <!-- DataTables -->
-          {!!Html::script('datatables/jquery.dataTables.min.js')!!}
-          {!!Html::script('datatables/dataTables.bootstrap.min.js')!!}
-<script type="text/javascript">
-      $('#datepicker').datepicker({
-      autoclose: true
-    });
-       $('#datepicker1').datepicker({
-      autoclose: true
-    });
-        $('#reservation').daterangepicker();
-
-          $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-</script>
-
-        <!-- AdminLTE App -->
-        <script src="{{asset('js/plugins/app.js')}}"></script>
-        {!!Html::script('js/herramientas.js')!!}
-
-
-
-
+        </script>
     </body>
 </html>

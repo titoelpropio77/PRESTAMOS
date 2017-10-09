@@ -1,0 +1,27 @@
+
+
+.btnPrint{
+    z-index: 1;
+    position: fixed;
+    float: right;
+    text-align: center;
+    border-radius: 15px;
+    color: white;
+}
+
+.btnPrint button{
+    padding: 30px;
+    font-size: 40px;
+    background-color: #000;
+    color: white;
+    border-radius: 20px;
+}
+@media print {
+    .btnPrint{
+        display:none
+    }
+    .saltoDePagina{
+
+        page-break-before:always 
+    }
+}
