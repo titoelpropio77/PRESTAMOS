@@ -20,3 +20,6 @@ Route::resource('usuario', 'UsuarioController');
 Route::get('index',function(){
 return view('index');
 });
+
+
+Route::resource('Gestionarprestamo','PrestamoController');

@@ -161,7 +161,7 @@
                                     <div class="collapsible-body">
                                         <ul>                
                                             <div id="Gestionarempresa"  >
-                                                <li><a href="/Gestionarempresa">Gestionar Prestamos</a></li>
+                                                <li><a href="Gestionarprestamo">Gestionar Prestamos</a></li>
                                             </div>
                                             <div id="GestionarPais"  >
                                                 <li><a href="/GestionarPais">Gestionar Conbranza</a></li>
