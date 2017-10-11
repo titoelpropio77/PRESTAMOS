@@ -14,6 +14,8 @@
 Route::get('/',function(){
 return view('log.index');
 });  
+Route::resource('cliente', 'ClienteController');
+
 Route::resource('usuario', 'UsuarioController');
 Route::get('index',function(){
 return view('index');

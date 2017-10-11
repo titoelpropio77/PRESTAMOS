@@ -74,7 +74,7 @@
                     <div class="nav-wrapper">
                         <h1 class="logo-wrapper">
                             <a   class="brand-logo darken-1" href="/index">
-                                {!! HTML::image('images/materialize-logo.png', 'a picture')!!}  
+                                 {!! HTML::image('images/materialize-logo.png', 'a picture')!!}  
                             </a>
                         </h1>
                         <ul class="right hide-on-med-and-down">
@@ -132,9 +132,9 @@
                                         </li>
                                     </ul>
                                     <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">
-                                        {!! Session::get('nombre') !!}
+                                        STHEPANIE
                                         <i class="mdi-navigation-arrow-drop-down right"></i></a>
-                                    <p class="user-roal">{!! Session::get('Cargo') !!}</p>               
+                                    <p class="user-roal">ADMINISTRADOR</p>               
                                 </div>
                                 <!--<h5  class="sucursal" id="sucursalnombre" >{!! Session::get('sucursal') !!}</h5>-->
                             </div>
