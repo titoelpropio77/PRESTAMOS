@@ -305,6 +305,7 @@
         {!!Html::script('js/plugins/ionRangeSlider/js/ion.rangeSlider.js')!!}}
         @section('scripts')
         @show
+          @yield('script')
         <script type="text/javascript">
 //             function startTime() {
 //                 today = new Date();
@@ -331,7 +332,7 @@
 //             $(window).load(function () {
 //                 startTime();
 //             });
-
-        </script>
+    
+     </script>
     </body>
 </html>

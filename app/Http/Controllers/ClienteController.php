@@ -205,5 +205,8 @@ class ClienteController extends Controller {
         return response()->json($verificar);
 
     }
-
+    public function listarCliente(){
+        $listar=DB::select('select *from cliente ');
+        return response()->json($listar);
+    }
 }

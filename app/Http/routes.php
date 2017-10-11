@@ -15,6 +15,7 @@ Route::get('/',function(){
 return view('log.index');
 });  
 Route::resource('cliente', 'ClienteController');
+Route::get('listarCliente', 'ClienteController@listarCliente');
 
 Route::resource('usuario', 'UsuarioController');
 Route::get('index',function(){
