@@ -53,64 +53,23 @@ class ClienteController extends Controller {
         }
     }
 
-    public function store(Request $request) {
-//        $verificar = DB::select('select count(*) count from cliente where cliente.email="' . $request->email.'"');
-//        if ($verificar[0]->count == 0) {
-
-        $texto="";
-    
-        if ($this->validar_texto(1,$request->nombre) && $request->nombre!="") {
-           $texto.="No agregue numero en el campo Nombre  ";
-        }
-        if ($request->nombre=="") {
-           $texto.="El campo Nombre es obligatorio  ";
-        }
-
-        if ($this->validar_texto(1,$request->apellido) && $request->apellido!="") {
-           $texto.="No agregue numero en el campo Apellido  ";
-        }
-        if ($request->apellido=="") {
-           $texto.="El campo Apellido es obligatorio  ";
-        }
-
-        if ($this->validar_texto(0,$request->ci) && $request->ci!="") {
-           $texto.="No agregue letra en el campo CI  ";
-        }
-        if ($request->ci=="") {
-           $texto.="El campo CI es obligatorio  ";
-        }
-
-        if ($this->validar_texto(0,$request->nit) && $request->nit!="") {
-           $texto.="No agregue letra en el campo NIT  ";
-        }
-
-        if ($this->validar_texto(0,$request->celular) && $request->celular!="") {
-           $texto.="No agregue letra en el campo Celular  ";
-        }
-
-        if ($this->validar_texto(0,$request->telefono_adicional) && $request->telefono_adicional!="") {
-           $texto.="No agregue letra en el campo Telefono Adicional  ";
-        }
-
-        if ($texto!="") {
-           Session::flash('message-error',$texto);
-           return Redirect::to('/cliente');
-        }
-        else{
-
-        DB::table('cliente')->insert(['nombre' => $request['nombre'], 'apellido' => $request['apellido'], 'direccion' => $request['direccion'], 'ci' => $request['ci'], 'nit' => $request['nit']
-            , 'celular' => $request['celular'], 'telefono_adicional' => $request['telefono_adicional']]);
-        //        DB:table('cliente')->insert(['nick'=>$request->nick,'nick'=>$request->nick,'password'=>Hash::make($request->password)]);
-        Session::flash('message', 'Cliente Creado Correctamente');
-        return Redirect::to('/cliente');
-
-        }
-//                
-//        }
-//        else{
-//            Session::flash('message-error', 'Ya existe un usuario con ese nick');
-//            return Redirect::to('/');
-//        }
+    public function guarCliente(Request $request) {
+            $nombre=$request['nombre'];
+            $apellidos=$request['apellidos'];
+            $celular=$request['celular'];
+            $celularRef=$request['celularRef'];
+            $genero=$request['genero'];
+            $genero=$request['genero'];
+            $pais=$request['pais'];
+            $insertar=Cliente::create([
+                "nombre"=>$nombre,
+                "apellidos"=>$apellidos,
+                "celular"=>$celular,
+                "celularRef"=>$celularRef,
+                "idPais"=>$pais,
+                "genero"=>$genero,
+                "ci"=>$ci
+                ]);
     }
 
     public function edit($id) {
@@ -206,7 +165,7 @@ class ClienteController extends Controller {
 
     }
     public function listarCliente(){
-        $listar=DB::select('select *from cliente ');
+        $listar=DB::select('select nombre,apellidos,celular,ci,expedido from cliente ');
         return response()->json($listar);
     }
 }

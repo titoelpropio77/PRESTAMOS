@@ -14,8 +14,12 @@
 Route::get('/',function(){
 return view('log.index');
 });  
+
+//cliente
+
 Route::resource('cliente', 'ClienteController');
 Route::get('listarCliente', 'ClienteController@listarCliente');
+Route::get('guarCliente', 'ClienteController@guarCliente');
 
 Route::resource('usuario', 'UsuarioController');
 Route::get('index',function(){
@@ -23,4 +27,14 @@ return view('index');
 });
 
 
+//GESTION DE PRESTAMOS
 Route::resource('Gestionarprestamo','PrestamoController');
+
+
+
+//PAIS
+Route::get('mostrarPais',function(){
+
+$lista=DB::select('select *from pais');
+return response()->json($lista);
+});
