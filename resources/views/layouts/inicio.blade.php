@@ -74,7 +74,7 @@
                     <div class="nav-wrapper">
                         <h1 class="logo-wrapper">
                             <a   class="brand-logo darken-1" href="/index">
-                                {!! HTML::image('images/materialize-logo.png', 'a picture')!!}  
+                                 {!! HTML::image('images/materialize-logo.png', 'a picture')!!}  
                             </a>
                         </h1>
                         <ul class="right hide-on-med-and-down">
@@ -132,9 +132,15 @@
                                         </li>
                                     </ul>
                                     <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">
+<<<<<<< HEAD
                                         Stephanie
                                         <i class="mdi-navigation-arrow-drop-down right"></i></a>
                                     <p class="user-roal">Adminitracion</p>               
+=======
+                                        STHEPANIE
+                                        <i class="mdi-navigation-arrow-drop-down right"></i></a>
+                                    <p class="user-roal">ADMINISTRADOR</p>               
+>>>>>>> ad2dc5476323441f3213ba9e34a6003f72195942
                                 </div>
                                 <!--<h5  class="sucursal" id="sucursalnombre" >{!! Session::get('sucursal') !!}</h5>-->
                             </div>
@@ -305,6 +311,7 @@
         {!!Html::script('js/plugins/ionRangeSlider/js/ion.rangeSlider.js')!!}}
         @section('scripts')
         @show
+          @yield('script')
         <script type="text/javascript">
 //             function startTime() {
 //                 today = new Date();
@@ -331,7 +338,7 @@
 //             $(window).load(function () {
 //                 startTime();
 //             });
-
-        </script>
+    
+     </script>
     </body>
 </html>

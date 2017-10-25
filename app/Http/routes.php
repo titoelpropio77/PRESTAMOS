@@ -14,12 +14,34 @@
 Route::get('/',function(){
 return view('log.index');
 });  
+
+//cliente
+
+Route::resource('cliente', 'ClienteController');
+Route::get('listarCliente', 'ClienteController@listarCliente');
+Route::get('guarCliente', 'ClienteController@guarCliente');
+
 Route::resource('usuario', 'UsuarioController');
 Route::get('index',function(){
 return view('index');
 });
 
+<<<<<<< HEAD
 //gestion Prestamos
 Route::resource('Gestionarprestamo','PrestamoController');
 Route::get('verificarCarnet/{ci}',"ClienteController@verificarCarnet");
 
+=======
+
+//GESTION DE PRESTAMOS
+Route::resource('Gestionarprestamo','PrestamoController');
+
+
+
+//PAIS
+Route::get('mostrarPais',function(){
+
+$lista=DB::select('select *from pais');
+return response()->json($lista);
+});
+>>>>>>> ad2dc5476323441f3213ba9e34a6003f72195942
