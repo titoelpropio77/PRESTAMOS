@@ -1,10 +1,5 @@
 @extends('layouts.inicio')
-@section('contenido')
-@include('alerts.errors')
-@include('alerts.success')
-@include('alerts.cargando')
-@include('alerts.request')
-
+@section('Contenido')
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">

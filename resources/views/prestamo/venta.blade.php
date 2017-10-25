@@ -183,7 +183,7 @@ codigo vendedor
           </div>
           <div class="col-sm-2 ">
           <div class="form-group">
-          <label for="celular">Celular *</label>
+          <label for="celular">Celular*</label>
           <input  type="text"  class="form-control" name="celular"  placeholder="Celular del Cliente">  
           </div>        
           </div>

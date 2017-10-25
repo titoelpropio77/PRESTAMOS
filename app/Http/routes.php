@@ -19,5 +19,7 @@ Route::get('index',function(){
 return view('index');
 });
 
-
+//gestion Prestamos
 Route::resource('Gestionarprestamo','PrestamoController');
+Route::get('verificarCarnet/{ci}',"ClienteController@verificarCarnet");
+

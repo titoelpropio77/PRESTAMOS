@@ -132,9 +132,9 @@
                                         </li>
                                     </ul>
                                     <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">
-                                        {!! Session::get('nombre') !!}
+                                        Stephanie
                                         <i class="mdi-navigation-arrow-drop-down right"></i></a>
-                                    <p class="user-roal">{!! Session::get('Cargo') !!}</p>               
+                                    <p class="user-roal">Adminitracion</p>               
                                 </div>
                                 <!--<h5  class="sucursal" id="sucursalnombre" >{!! Session::get('sucursal') !!}</h5>-->
                             </div>
