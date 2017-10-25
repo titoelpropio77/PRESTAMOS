@@ -132,15 +132,15 @@
                                         </li>
                                     </ul>
                                     <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">
-<<<<<<< HEAD
+
                                         Stephanie
                                         <i class="mdi-navigation-arrow-drop-down right"></i></a>
                                     <p class="user-roal">Adminitracion</p>               
-=======
+
                                         STHEPANIE
                                         <i class="mdi-navigation-arrow-drop-down right"></i></a>
                                     <p class="user-roal">ADMINISTRADOR</p>               
->>>>>>> ad2dc5476323441f3213ba9e34a6003f72195942
+
                                 </div>
                                 <!--<h5  class="sucursal" id="sucursalnombre" >{!! Session::get('sucursal') !!}</h5>-->
                             </div>
@@ -293,9 +293,9 @@
             </div>
         </footer>
         <!-- END FOOTER -->
-        <!-- ================================================
+        <!-- ======
         Scripts
-        ================================================  -->    
+        ======  -->    
         <!-- jQuery Library -->
 
         {!!Html::script('js/plugins/jquery-2.1.4.min.js')!!}

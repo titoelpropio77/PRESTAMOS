@@ -74,4 +74,12 @@ class PrestamoController extends Controller
 		    return redirect('GestionarPrestamo/create')->with("message-error","ERROR INTENTE NUEVAMENTE");      
 		}         
 	}
+
+	public function listarPrestamos(){
+        $listar=DB::select('
+        		select id, capitalPrestado, estado, interes, ganancia, from prestamos
+        	');
+        return response()->json($listar);
+    }
+
 }
