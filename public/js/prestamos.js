@@ -68,7 +68,7 @@ function BuscarCliente(){
       $("input[name=domicilio]").val("");
       $("input[name=nit]").val("");      
     } else {
-      $("input[name=cliente]").val(1);
+      $("input[name=cliente]").val(res[0].id);
       $("input[name=ocupacion]").val(res[0].ocupacion);
       $("select[name=expedido]").val(res[0].expedido);
       $("input[name=nombre]").val(res[0].nombre);

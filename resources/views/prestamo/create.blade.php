@@ -5,7 +5,12 @@
 <div class="row">
 
 <div class="col s12 m12 l12">
+		
+		
+
       {!!Form::open(['route'=>'Gestionarprestamo.store', 'method'=>'POST'])!!}
+
+		
 
   <div class="collection">
     <a href="#!" class="collection-item"><span class="badge"><i class="material-icons dp48">people</i></span><b>DATOS DEL CLIENTE</b></a>
@@ -43,19 +48,19 @@
 			Lugar de Procedencia: <input placeholder="Lugar de Procedencia" type="text" name="lugarProcedencia" id="lugarProcedencia">
 		</div>	
 
-				<div class="input-field col s12 m12 l6">
+		<div class="input-field col s12 m12 l6">
                 <i class="mdi-editor-insert-invitation prefix"></i>
-                <label for="fechainicio">Fecha de Nacimiento:</label>
-                <input type="date"  id="fechainicio"  class="datepicker" placeholder=""  />
-            </div>
+                <label for="fechaNac">Fecha de Nacimiento:</label>
+                <input type="date"  id="fechaNac" name="fechaNac"  class="datepicker" placeholder=""  />
+        </div>
 
 		<div class="col s12 m2 l2">
-			Género:
-	    <select class="browser-default" name="genero" id="genero">
-	      <option value="" disabled selected>SELECCIONAR</option>
-	      <option value="MASCULINO">MASCULINO</option>
-	      <option value="FEMENINO">FEMENINO</option>
-	    </select>
+				Género:
+		    <select class="browser-default" name="genero" id="genero">
+		      <option value="" disabled selected>SELECCIONAR</option>
+		      <option value="MASCULINO">MASCULINO</option>
+		      <option value="FEMENINO">FEMENINO</option>
+		    </select>
 		</div>
 		<div class="col s12 m2 l2">
 			Celular: <input placeholder="Celular" type="text" name="celular" id="celular">
@@ -153,11 +158,13 @@
 		Pago Mensual: <input placeholder="0" type="number" name="pago_mensual" id="pago_mensual">
 	</div>			
 
-		<div class="input-field col s12 m12 l4">
+	<div class="input-field col s12 m12 l4">
                 <i class="mdi-editor-insert-invitation prefix"></i>
                 <label for="fechainicio">Fecha de Inicio:</label>
-                <input type="date"  id="fechainicio"  class="datepicker" placeholder=""  />
-            </div>
+                <input type="date"  id="fechainicio" name="fechainicio" class="datepicker" placeholder=""  />
+    </div>
+
+
 		
   </div>
 </div>	
@@ -173,6 +180,10 @@
 				<th><center>PAGO</center></th>
 				<th><center>SALDO CAPITAL</center></th>
 				<th><center>FECHA LIMITE</center></th>
+
+
+
+				
 			</thead>
 			<tbody id="body_prestamo"></tbody>
 		</table>
@@ -180,7 +191,10 @@
 </div>	
 <div class="col s12 m12 l12">
 <button class="btn waves-effect waves-light">Registrar</button>
-<a class="btn btn-danger" >Cancelar</a>    
+<a class="btn btn-danger" >Cancelar</a> 
+
+
+
 {!!Form::close()!!}
 </div>
 

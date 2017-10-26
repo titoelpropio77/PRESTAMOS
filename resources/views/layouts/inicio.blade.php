@@ -166,7 +166,7 @@
                                     </a>
                                     <div class="collapsible-body">
                                         <ul>                
-                                            <div id="Gestionarempresa"  >
+                                            <!-- <div id="Gestionarempresa"  >
                                                 <li><a href="Gestionarprestamo">Gestionar Prestamos</a></li>
                                             </div>
                                             <div id="GestionarPais"  >
@@ -174,8 +174,10 @@
                                             </div>
                                             <div id="GestionarSucursal"  >
                                                 <li><a href="/GestionarSucursal">Gestionar LLamadas</a></li>
-                                            </div>
-                                           
+                                            </div> -->
+                                            <div>
+                                            <li id="liPrestamos"><a href="{{url('Gestionarprestamo')}}"><i class="fa fa-circle-o"></i> LISTA DE PRESTAMOS</a></li>
+                                             </div>
                                         </ul>
                                     </div>
                                 </li>
