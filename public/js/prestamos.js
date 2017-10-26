@@ -24,8 +24,8 @@ function Calcular(){
 		for (var i = 1; i <= periodo.val(); i++) {
 			$("#body_prestamo").append("<tr align='center'><td><input type=text value="+i+" name='periodo_c[]' id='periodo_c"+i+"' readonly style='text-align:center'></td>\N\
 			<td><input type='text' name='saldo_inicial[]' id='saldo_inicial"+i+"' style='text-align:center' readonly></td>\N\
-			<td><input type='text' value="+interes_mensualx+" name='interes_c[]' id='interes_c"+i+"' style='text-align:center' readonly></td>\N\
-			<td><input type='text' value="+$pago_mensual+" name='pago[]' id='pago"+i+"' style='text-align:center' readonly></td>\N\
+			<td><input type='text' value='"+interes_mensualx+"' name='interes_c"+i+"' id='interes_c"+i+"' style='text-align:center' ></td>\N\
+			<td><input type='text' value='"+$pago_mensual+"' name='pago[]' id='pago"+i+"' style='text-align:center' readonly></td>\N\
 			<td><input type='text' name='saldo_capital[]' id='saldo_capital"+i+"' style='text-align:center' readonly></td>\N\
 			<td><input type='text' name='fecha_limite[]' id='fecha_limite"+i+"' style='text-align:center' readonly></td></tr>");	
 

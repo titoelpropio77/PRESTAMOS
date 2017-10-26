@@ -3,12 +3,12 @@
 
 @include('alerts.request')
 <div class="row">
-
+ {!!Form::open(['route'=>'Gestionarprestamo.store', 'method'=>'POST'])!!}
 <div class="col s12 m12 l12">
 		
 		
 
-      {!!Form::open(['route'=>'Gestionarprestamo.store', 'method'=>'POST'])!!}
+     
 
 		
 

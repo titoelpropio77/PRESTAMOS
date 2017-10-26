@@ -84,16 +84,13 @@ $cliente=0;
 		    $saldo_capital=$request["saldo_capital"];
 		    $fecha_limite=$request["fecha_limite"];
 
-		    $fe=$request['saldo_inicial']; 
-		    echo $fe;
+		  
 
 		    for ($i=0; $i <count($periodo) ; $i++) {
-		    	echo $saldo_inicial; 
+		  
 		    	Cuotas::create([
 		    		'importe'=>$pago[$i],
-		    		'nrocuota'=>$periodo[$i],
-		    		'fechalimite'=>$fecha_limite[$i],
-		    		'idPlanPago'=>$idPrestamo['id']
+		    		'idPlanPago'=>87
 
 
 		    		
