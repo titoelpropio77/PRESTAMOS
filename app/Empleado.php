@@ -24,7 +24,7 @@ class Empleado extends Authenticatable implements AuthenticatableContract,
      */
       protected $table = 'empleado';
     protected $fillable = [
-        'nombre', 'apellido','direccion', 'ci','celular','genero','estado','idTurno','idCargo','codigo','expedido','idPais'
+        'nombre', 'apellidos','cargo','usuario','password'
     ];
 
     /**

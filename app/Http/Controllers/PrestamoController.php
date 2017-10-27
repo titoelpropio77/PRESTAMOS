@@ -86,7 +86,6 @@ $cliente=0;
 			// 'nroCuotas','fechaVencimiento','fechaMensual','totalPagar','idPrestamo','estado'  
 		   	$cantidad=count($request["fecha_limite"])-1;
 		   	// echo  $calculhmac(clent, data)ntidad;
-		   	 echo $fecha_limite[$cantidad];
 		    $idPlanPago=PlanDePago::create([
 		    'nroCuota'=>$request["periodo"],
 		    'fechaVencimiento'=> $fecha_limite[$cantidad],
@@ -94,17 +93,27 @@ $cliente=0;
 		    'idPrestamo'=>$idPrestamo['id']
 		    ]);
 		    
+
+		 
 		    $periodo=$request["periodo_c"];
 		    $saldo_inicial=$request["saldo_inicial"];
 		    $interes_c=$request["interes_c"];
 		    $pago=$request["pago"];
 		    $saldo_capital=$request["saldo_capital"];
-		  
+
+		  	
+		  	if ($request["tipoPago"]=="i") {
+		  		$tipo_pago=$interes_c;
+
+		  	}else{
+		  		$tipo_pago=$pago;
+		  	}
  			
  			 for ($i=0; $i <count($periodo) ; $i++) {
 		  
 		    	Cuotas::create([
-		    		'importe'=>$pago[$i],
+
+		    		'importe'=>$tipo_pago[$i],
 		    		'idPlanPago'=>$idPlanPago['id'],
 		    		'fechaLimite'=>date("Y-m-d",strtotime($fecha_limite[$i])),
 

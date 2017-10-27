@@ -12,7 +12,7 @@ function Calcular(){
   capital_prestado=$("#capital_prestado");
 	if ( $("#interes").val()!="" && capital_prestado.val()!="" && periodo.val()!="" ) {
     $("#body_prestamo").empty();
-		interes_mensual=parseFloat(parseFloat(capital_prestado.val())*parseFloat($("#interes").val())/100);
+		interes_mensual=(parseFloat(parseFloat(capital_prestado.val())*parseFloat($("#interes").val())/100)).toFixed(2);
     interes_mensualx=interes_mensual;
 		$("#interes_mensual").val(interes_mensual);
 		$total_pago=parseFloat(parseFloat(interes_mensual)*parseFloat(periodo.val()))+parseFloat(capital_prestado.val());
@@ -27,7 +27,6 @@ function Calcular(){
         $fecha=("28/" + (f.getMonth() +i) + "/" + f.getFullYear());   
       } else {
         $fecha=(f.getDate() + "/" + (f.getMonth() +5) + "/" + f.getFullYear());
-        alert(f.getMonth() +i)       ;        
       }
 
 			$("#body_prestamo").append("<tr align='center'><td><input type=text value="+i+" name='periodo_c[]' id='periodo_c"+i+"' readonly style='text-align:center'></td>\N\

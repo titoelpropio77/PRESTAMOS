@@ -24,7 +24,7 @@ class Cuotas extends Authenticatable implements AuthenticatableContract,
      */
       protected $table = 'cuota';
     protected $fillable = [
-        'id','importe','fechaLimite','iva','nroCuota','idPlanPago','mora'
+        'id','importe','fechaLimite','nroCuota','idPlanPago','mora','estado'
     ];
 
     /**
