@@ -22,21 +22,23 @@ function Calcular(){
 		$ganancia=parseFloat($total_pago)-parseFloat(capital_prestado.val());
 		$("#ganancia").val($ganancia);
 		for (var i = 1; i <= periodo.val(); i++) {
+        var f = new Date();
+      if (f.getDate() == "30" || f.getDate() == "31" || f.getDate() == "29") {
+        $fecha=("28/" + (f.getMonth() +i) + "/" + f.getFullYear());   
+      } else {
+        $fecha=(f.getDate() + "/" + (f.getMonth() +5) + "/" + f.getFullYear());
+        alert(f.getMonth() +i)       ;        
+      }
+
 			$("#body_prestamo").append("<tr align='center'><td><input type=text value="+i+" name='periodo_c[]' id='periodo_c"+i+"' readonly style='text-align:center'></td>\N\
 			<td><input type='text' name='saldo_inicial[]' id='saldo_inicial"+i+"' style='text-align:center' readonly></td>\N\
 			<td><input type='text' value='"+interes_mensualx+"' name='interes_c"+i+"' id='interes_c"+i+"' style='text-align:center' ></td>\N\
 			<td><input type='text' value='"+$pago_mensual+"' name='pago[]' id='pago"+i+"' style='text-align:center' readonly></td>\N\
-			<td><input type='text' name='saldo_capital[]' id='saldo_capital"+i+"' style='text-align:center' readonly></td>\N\
-			<td><input type='text' name='fecha_limite[]' id='fecha_limite"+i+"' style='text-align:center' readonly></td></tr>");	
+			<td><input type='text' name='saldo_capital[]' id='saldo_capital"+i+"' style='text-align:center' readonly>\n\
+      <td><input type='text' name='fecha_limite[]' id='fecha_limite"+i+"' value='"+$fecha+"' style='text-align:center' readonly></td></tr>");	
 
-			
-			var f = new Date();
-			if (f.getDate() == "30" || f.getDate() == "31" || f.getDate() == "29") {
-				$fecha=("28/" + (f.getMonth() +i) + "/" + f.getFullYear());		
-			} else {
-				$fecha=(f.getDate() + "/" + (f.getMonth() +i) + "/" + f.getFullYear());								
-			}
-			$("#fecha_limite"+i).val($fecha);			
+      // $("#body_prestamo").append("<td><input type='text' name='fecha_limite[]' id='fecha_limite"+i+"' value='"+$fecha+"' style='text-align:center' readonly></td></tr>");
+				
       if (periodo.val()-1==i) {
         interes_mensualx=interes_mensual+parseFloat(capital_prestado.val());
       }

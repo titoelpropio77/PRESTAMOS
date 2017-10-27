@@ -158,10 +158,10 @@
 		Pago Mensual: <input placeholder="0" type="number" name="pago_mensual" id="pago_mensual">
 	</div>			
 
-	<div class="input-field col s12 m12 l4">
-                <i class="mdi-editor-insert-invitation prefix"></i>
-                <label for="fechainicio">Fecha de Inicio:</label>
-                <input type="date"  id="fechainicio" name="fechainicio" class="datepicker" placeholder=""  />
+	<div class=" col s12 m12 l4">
+               
+                <label for="">Fecha de Inicio:</label>
+                <input type="date"  id="fechainicio" name="fechainicio" placeholder=""  />
     </div>
 
 

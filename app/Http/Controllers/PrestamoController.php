@@ -9,8 +9,8 @@ use App\Pais;
 use App\Cliente;
 use App\DetallePrestamos;
 use App\Prestamos;
-use App\PlanDePago;
 use App\Cuotas;
+use App\PlanDePago;
 use DB;
 use Session;
 
@@ -77,35 +77,40 @@ $cliente=0;
 		      'idEmpleado' => 1,
 		      'idCliente' => $cliente
 		    ]);
-		  'nroCuotas','fechaVencimiento','fechaMensual','totalPagar','idPrestamo','estado'   
+
+
+		    $fecha_limite=$request["fecha_limite"]; 
+		    for ($i=0; $i <count($fecha_limite) ; $i++) { 
+		    				// echo $fecha_limite[$i];
+		    			}			
+			// 'nroCuotas','fechaVencimiento','fechaMensual','totalPagar','idPrestamo','estado'  
+		   	$cantidad=count($request["fecha_limite"])-1;
+		   	// echo  $calculhmac(clent, data)ntidad;
+		   	 echo $fecha_limite[$cantidad];
 		    $idPlanPago=PlanDePago::create([
 		    'nroCuota'=>$request["periodo"],
-		    'fechaVencimiento'=>$request["periodo"],
-		    'fechaMensual'=>$request["totalPagar"],
-		    'idPrestamo'=>$idPrestamo['id'],
+		    'fechaVencimiento'=> $fecha_limite[$cantidad],
+		    'totaPagar'=>$request["total_pago"],		   
+		    'idPrestamo'=>$idPrestamo['id']
 		    ]);
-
-
+		    
 		    $periodo=$request["periodo_c"];
 		    $saldo_inicial=$request["saldo_inicial"];
 		    $interes_c=$request["interes_c"];
 		    $pago=$request["pago"];
 		    $saldo_capital=$request["saldo_capital"];
-		    $fecha_limite=$request["fecha_limite"];
-
 		  
-
-		    for ($i=0; $i <count($periodo) ; $i++) {
+ 			
+ 			 for ($i=0; $i <count($periodo) ; $i++) {
 		  
 		    	Cuotas::create([
 		    		'importe'=>$pago[$i],
-		    		'idPlanPago'=>$idPlanPago,
-		    		
+		    		'idPlanPago'=>$idPlanPago['id'],
+		    		'fechaLimite'=>date("Y-m-d",strtotime($fecha_limite[$i])),
 
-
-		    		
 		    		]);
 		    }
+
 		  //  DB::commit(); 
 		    //return redirect('Gestionarprestamo/create')->with('message','GUARDADO CORRECTAMENTE');  
 		}catch (Exception $e) {
