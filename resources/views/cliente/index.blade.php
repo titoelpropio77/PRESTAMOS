@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">Agregar Empleado</h5>
+                <h5 class="breadcrumbs-title">AGREGAR NUEVOS CLIENTES</h5>
                 <ol class="breadcrumbs">
                     <li><a href="/index">Dashboard</a></li>
                     <li><a href="/Empleados">Gestionar Empleados</a></li>

@@ -18,8 +18,11 @@ return view('log.index');
 //cliente
 
 Route::resource('cliente', 'ClienteController');
+Route::resource('Empleado', 'EmpleadoController');
 Route::get('listarCliente', 'ClienteController@listarCliente');
+Route::get('listarEmpleado', 'EmpleadoController@listarEmpleado');
 Route::get('guarCliente', 'ClienteController@guarCliente');
+Route::get('guarEmpleado', 'EmpleadoController@guarEmpleado');
 Route::resource('Prestamos', 'PrestamosController@listarPrestamos');
 
 Route::resource('usuario', 'UsuarioController');
@@ -29,7 +32,7 @@ return view('index');
 
 
 //gestion Prestamos
-Route::resource('Gestionarprestamo','PrestamoController');
+
 Route::get('verificarCarnet/{ci}',"ClienteController@verificarCarnet");
 
 
