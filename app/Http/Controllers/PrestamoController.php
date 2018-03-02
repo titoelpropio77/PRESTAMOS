@@ -111,8 +111,8 @@ $cliente=0;
 		    		]);
 		    }
 
-		  //  DB::commit(); 
-		    //return redirect('Gestionarprestamo/create')->with('message','GUARDADO CORRECTAMENTE');  
+		   DB::commit(); 
+		    return redirect('Gestionarprestamo/create')->with('message','GUARDADO CORRECTAMENTE');  
 		}catch (Exception $e) {
 		    DB::rollback();
 		    return redirect('GestionarPrestamo/create')->with("message-error","ERROR INTENTE NUEVAMENTE");      
